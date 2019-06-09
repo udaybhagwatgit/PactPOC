@@ -9,7 +9,6 @@ import au.com.dius.pact.model.MockProviderConfig;
 import au.com.dius.pact.model.PactSpecVersion;
 import au.com.dius.pact.model.RequestResponsePact;
 import com.student.model.Student;
-import com.student.service.StudentService;
 import com.student.util.Utility;
 import org.json.JSONObject;
 import org.junit.Test;
@@ -18,9 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static au.com.dius.pact.consumer.ConsumerPactRunnerKt.runConsumerTest;
 import static org.junit.Assert.assertEquals;
