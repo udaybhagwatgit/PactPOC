@@ -1,4 +1,4 @@
-package com.student.test;
+package com.student.service;
 
 import com.student.model.Student;
 import org.springframework.security.core.parameters.P;
@@ -11,7 +11,7 @@ import java.util.Map;
 @Component
 public class StudentService {
 
-    private String backendURL = "http://localhost:8085/students/getStudents";
+
 
     public Student getStudent() {
         Student st = new Student();
@@ -36,11 +36,5 @@ public class StudentService {
         return stList;
     }
 
-    public void setBackendURL(String URLBase, boolean get) {
-        if(get) {
-            this.backendURL = URLBase + "/students/getStudents";
-        }else{
-            this.backendURL = URLBase + "/students/addStudent";
-        }
-    }
+
 }
