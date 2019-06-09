@@ -71,12 +71,13 @@ public class StudentServiceApplicationTests {
 		//Version of Pact to be used
 		MockProviderConfig config = MockProviderConfig.createDefault(this.pactSpecVersion.V3);
 
-		//Setting up the mock data
+		//Setting up the payload
 		DslPart payload = new PactDslJsonBody()
 				.stringType("name", "Mark")
 				.integerType("age", 11)
 				.integerType("marks", 91);
 
+		//Setting up the mock data
 		DslPart resp = new PactDslJsonArray()
 				.object()
 				.stringType("name", "Mike")
@@ -103,7 +104,7 @@ public class StudentServiceApplicationTests {
 				.body(resp)
 				.toPact();
 
-		//as of now, only the "name" is ready and thus please check if the name is "Mike" or not
+		//as of now, only the "name" is ready and thus please check if the name is "Mark" or not, also the length
 		PactVerificationResult result = runConsumerTest(pact, config, mockServer -> {
 			studentProvider.setBackendURL(mockServer.getUrl(), false);
 			List<Student> std = studentProvider.addStudentFromProvider(Utility.toMap((JSONObject) payload.getBody()));
